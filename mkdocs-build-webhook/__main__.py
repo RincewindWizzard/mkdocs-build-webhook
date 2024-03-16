@@ -20,7 +20,7 @@ WWW_DIR = Path(os.environ.get('WEBHOOK_WWW_DIR'))
 
 @app.route("/", methods=['GET'])
 def index():
-    return "<p>Hello, World!</p>"
+    return "<p>It works!</p>"
 
 
 @app.route("/", methods=['POST'])
