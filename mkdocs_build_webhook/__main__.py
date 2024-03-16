@@ -42,7 +42,11 @@ def post():
 
             built_successful = build_project(repo_dir)
             if built_successful:
-                shutil.copytree(repo_dir / 'site', WWW_DIR / repo_name)
+                deploy_dir = WWW_DIR / repo_name
+                if deploy_dir.is_dir():
+                    shutil.rmtree(deploy_dir)
+                shutil.copytree(repo_dir / 'site', deploy_dir)
+                logger.debug(f'Successfully deployed repo_name')
                 return jsonify({'msg': 'build successful'}), 200
             else:
                 return jsonify({'msg': 'build failed'}), 500
