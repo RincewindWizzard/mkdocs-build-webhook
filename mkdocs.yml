@@ -1,0 +1,18 @@
+site_name: mkdocs-build-webhook
+
+
+
+#site_url: https://rincewindwizzard.github.io/larp-flohmarkt/
+repo_url: https://github.com/RincewindWizzard/mkdocs-build-webhook
+edit_uri: ./edit/main/docs/
+
+theme:
+  name: readthedocs
+  language: de
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
