@@ -2,7 +2,7 @@ site_name: mkdocs-build-webhook
 
 
 
-#site_url: https://rincewindwizzard.github.io/larp-flohmarkt/
+site_url: https://rincewindwizzard.github.io/mkdocs-build-webhook/
 repo_url: https://github.com/RincewindWizzard/mkdocs-build-webhook
 edit_uri: ./edit/main/docs/
 
