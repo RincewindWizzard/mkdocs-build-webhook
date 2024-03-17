@@ -6,7 +6,7 @@ Run it with
 
 ## Installation
 
-    mkdir /var/share/mkdocs-build-webhook/ /var/www/ /etc/mkdocs-build-webhook/ /var/www/.ssh/
+    mkdir -p /var/share/mkdocs-build-webhook/ /var/www/ /etc/mkdocs-build-webhook/ /var/www/.ssh/
     ssh-keyscan github.com >> /var/www/.ssh/known_hosts
     ssh-keygen -t ed25519 -f /var/www/.ssh/deploy_key -C "mkdocs-build-webhook" -N ''
     chown -R www-data:www-data /var/share/mkdocs-build-webhook/ /var/www/
@@ -33,6 +33,13 @@ Add this config to /etc/mkdocs-build-webhook/mkdocs-build-webhook.conf:
      CheckHostIP no
      IdentityFile "~/.ssh/deploy_key"
 
+Install pipx:
+
+    apt install pipx
+    su www-data -s /bin/bash
+    pipx install mkdocs-build-webhook
+    
+
 /etc/systemd/system/mkdocs-build-webhook.service:
 
     [Unit]
@@ -49,6 +56,17 @@ Add this config to /etc/mkdocs-build-webhook/mkdocs-build-webhook.conf:
     
     [Install]
     WantedBy=multi-user.target
+
+Activate with:
+
+    sudo systemctl daemon-reload
+    sudo systemctl enable mkdocs-build-webhook.service
+    sudo systemctl start mkdocs-build-webhook.service
+
+Does it work?
+
+    sudo journalctl -u mkdocs-build-webhook.service -f
+
 
 # Docker
 
