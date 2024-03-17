@@ -25,7 +25,7 @@ logger.debug(f'secret: {WEBHOOK_SECRET}')
 
 @app.route("/", methods=['GET'])
 def index():
-    return "<p>It works!</p>"
+    return jsonify({'msg': 'it works'}), 200
 
 
 @app.route("/", methods=['POST'])
