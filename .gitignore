@@ -1,3 +1,4 @@
+.config.toml
 .idea/
 dist/
 # Byte-compiled / optimized / DLL files

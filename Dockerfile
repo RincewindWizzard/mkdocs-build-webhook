@@ -12,7 +12,7 @@ FROM python:3.12-slim
 ENV WEBHOOK_GIT_DIR=/git/
 ENV WEBHOOK_WWW_DIR=/var/www/
 ENV WEBHOOK_SECRET="<your webhook secret>"
-ARG USER_ID=1000
+
 
 WORKDIR /app
 
@@ -30,7 +30,7 @@ RUN rm -r /app/dist/
 
 
 
-RUN adduser --disabled-password --gecos '' --uid $USER_ID user
+RUN adduser --disabled-password --gecos '' --uid 1000 user
 
 RUN mkdir -p /git/ /var/www/
 RUN chown -R user /home/user/ /var/www/ /git/
